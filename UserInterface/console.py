@@ -56,7 +56,7 @@ def handle_crud(cheltuieli):
         print('2. Modificare')
         print('3. Stergere')
         print('a. Afisare')
-        print('d. Detalii prajitura')
+        print('d. Detalii cheltuiala')
         print('b. Revenire')
 
         optiune = input('Optiunea aleasa: ')

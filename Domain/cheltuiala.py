@@ -7,13 +7,14 @@ def creeaza_cheltuiala(id: int, numar_apartament, suma, data, tipul):
     :param tipul:tipul cheltuielii(intretinere, canal, alte cheltuieli)
     :return: o cheltuiala
     '''
-    return{
-        'id': id,
-        'numar': numar_apartament,
-        'suma': suma,
-        'data': data,
-        'tip': tipul,
-    }
+    return[
+        id,
+        numar_apartament,
+        suma,
+        data,
+        tipul,
+    ]
+    #return(id, numar_apartament, suma, data, tipul)
 
 def get_id(cheltuiala):
     '''
@@ -21,7 +22,8 @@ def get_id(cheltuiala):
     :param cheltuiala: cheltuiala
     :return: id-ul cheltuielii date ca parametru.
     '''
-    return cheltuiala['id']
+    #return cheltuiala['id']
+    return cheltuiala[0]
 
 def get_numar_apartament(cheltuiala):
     '''
@@ -29,7 +31,8 @@ def get_numar_apartament(cheltuiala):
     :param cheltuiala: cheltuiala
     :return: numarul apartamentului a carui cheltuiala este data ca parametru.
     '''
-    return cheltuiala['numar']
+    #return cheltuiala['numar']
+    return cheltuiala[1]
 
 def get_suma(cheltuiala):
     '''
@@ -37,7 +40,8 @@ def get_suma(cheltuiala):
     :param cheltuiala: cheltuiala
     :return: suma cheltuielii date ca parametru.
     '''
-    return cheltuiala['suma']
+    #return cheltuiala['suma']
+    return cheltuiala[2]
 
 def get_data(cheltuiala):
     '''
@@ -45,7 +49,8 @@ def get_data(cheltuiala):
     :param cheltuiala: cheltuiala
     :return: data emiterii cheltuielii date ca parametru.
     '''
-    return cheltuiala['data']
+    #return cheltuiala['data']
+    return cheltuiala[3]
 
 def get_tip(cheltuiala):
     '''
@@ -53,7 +58,8 @@ def get_tip(cheltuiala):
     :param cheltuiala: cheltuiala
     :return: tipul cheltuielii date ca parametru.
     '''
-    return cheltuiala['tip']
+    #return cheltuiala['tip']
+    return cheltuiala[4]
 
 def get_str(cheltuiala):
     return f'Cheltuiala cu id-ul: {get_id(cheltuiala)}, a numarului de apartament: {get_numar_apartament(cheltuiala)}, avand suma de: {get_suma(cheltuiala)} lei, din data de: {get_data(cheltuiala)}, de tipul: {get_tip(cheltuiala)}'
