@@ -45,11 +45,13 @@ def test_read():
 
 def test_modificare():
     cheltuieli = get_data()
-    p_updated = creeaza_cheltuiala(5, 5, 234.43, '02.04.2014', 'canal')
+    params = (3, 29, 800.50, '29.08.2020', 'canal')
+    p_updated = creeaza_cheltuiala(*params)
     updated = modificare(cheltuieli, p_updated)
     assert p_updated in updated
     assert p_updated not in cheltuieli
     assert len(updated) == len(cheltuieli)
+
 
 
 
@@ -61,6 +63,11 @@ def test_stergere():
     assert p_deleted not in deleted
     assert p_deleted in cheltuieli
     assert len(deleted) == len(cheltuieli) - 1
+    try:
+        cheltuieli = stergere(cheltuieli, 12)
+        assert False
+    except ValueError:
+        assert True
 
 def test_crud():
     test_adaugare()

@@ -3,7 +3,7 @@ from datetime import datetime
 from Domain.cheltuiala import get_str, get_numar_apartament, get_suma, get_data, get_tip, creeaza_cheltuiala
 from Logic.adaugare_valoare import aduna_valoare
 from Logic.crud import adaugare, read, modificare, stergere
-from Logic.stergere import sterge_cu_nr_ap
+from Logic.stergere import sterge_cu_nr_ap, stergere_cheltuiala
 
 
 def show_menu():
@@ -15,7 +15,7 @@ def show_menu():
 def handle_stergere_cheltuieli(cheltuieli):
     try:
         numar_apartament = int(input('Introduceti numarul apartamentului pentru care se vor sterge cheltuielile:'))
-        cheltuieli = sterge_cu_nr_ap(cheltuieli, numar_apartament)
+        cheltuieli = stergere_cheltuiala(cheltuieli, numar_apartament)
         print('Stergerea a fost efectuata cu succes.')
     except ValueError as ve:
         print('Eroare:', ve)
@@ -59,9 +59,10 @@ def handle_modificare(cheltuieli):
         suma = float(input('Introduceti noua suma a cheltuielii: '))
         data = input('Introduceti noua data a cheltuielii: ')
         tipul = input('Introduceti noul tip de cheltuiala: ')
+        return modificare(cheltuieli, creeaza_cheltuiala(id, numar_apartament, suma, data, tipul))
     except ValueError as ve:
         print('Eroare:', ve)
-    return modificare(cheltuieli, creeaza_cheltuiala(id, numar_apartament, suma, data, tipul))
+
 
 
 def handle_stergere(cheltuieli):
@@ -69,9 +70,10 @@ def handle_stergere(cheltuieli):
         id = int(input('Introduceti id-ul cheltuielii care se va sterge: '))
         cheltuieli = stergere(cheltuieli, id)
         print('Stergerea a fost efectuata cu succes.')
+        return cheltuieli
     except ValueError as ve:
         print('Eroare:', ve)
-    return cheltuieli
+
 
 
 def handle_crud(cheltuieli):
