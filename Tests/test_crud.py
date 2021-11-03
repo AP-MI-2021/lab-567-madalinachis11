@@ -19,9 +19,21 @@ def test_adaugare():
     new_cheltuieli = adaugare(cheltuieli, *params)
     assert len(new_cheltuieli) == len(cheltuieli) + 1
 
+
+    #found
+    #for cheltuiala in new_cheltuieli:
+    #    if cheltuiala == p_new
+    #        found = True
     assert p_new in new_cheltuieli
 
 
+    # testam daca se lanseaza exceptie pentru id duplicat
+    params2 = (29, 12, 123, '23.05.2019', 'canal')
+    try:
+        _ = adaugare(new_cheltuieli, *params2)
+        assert False
+    except ValueError:
+        assert True # sau pass
 
 def test_read():
     cheltuieli = get_data()

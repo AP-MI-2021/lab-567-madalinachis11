@@ -63,6 +63,3 @@ def get_tip(cheltuiala):
 
 def get_str(cheltuiala):
     return f'Cheltuiala cu id-ul: {get_id(cheltuiala)}, a numarului de apartament: {get_numar_apartament(cheltuiala)}, avand suma de: {get_suma(cheltuiala)} lei, din data de: {get_data(cheltuiala)}, de tipul: {get_tip(cheltuiala)}'
-
-
-
