@@ -52,6 +52,15 @@ def test_modificare():
     assert p_updated not in cheltuieli
     assert len(updated) == len(cheltuieli)
 
+    # testam daca se lanseaza exceptie pentru id inexistent
+    try:
+        params2 = (10, 11, 567, '29.08.2020', 'intretinere')
+        p_updated = creeaza_cheltuiala(*params2)
+        cheltuieli = modificare(cheltuieli, p_updated)
+        assert False
+    except ValueError:
+        assert True
+
 
 
 
