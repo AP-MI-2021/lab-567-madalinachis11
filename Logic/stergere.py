@@ -3,7 +3,7 @@ from Domain.cheltuiala import get_numar_apartament, get_id
 from Logic.crud import stergere, get_cheltuiala_cu_numar_apartament, sterge_cu_nr_ap
 
 
-def stergere_cheltuiala(lst_cheltuieli, numar_apartament):
+def stergere_cheltuiala(lst_cheltuieli, numar_apartament, undo_list, redo_list):
     '''
     Sterge toate cheltuielile pentru un apartament dat.
     :param lst_cheltuieli:lista de cheltuieli
@@ -15,4 +15,6 @@ def stergere_cheltuiala(lst_cheltuieli, numar_apartament):
     for cheltuiala in lst_cheltuieli:
         if get_numar_apartament(cheltuiala) == numar_apartament:
             lst_cheltuieli = sterge_cu_nr_ap(lst_cheltuieli, numar_apartament)
+    undo_list.append(lst_cheltuieli)
+    redo_list.clear()
     return lst_cheltuieli

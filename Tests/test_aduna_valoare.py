@@ -7,7 +7,7 @@ def test_adunare_valoare():
     lst_cheltuieli = get_data()
     valoarea = 10
     data = '12.08.2015'
-    assert aduna_valoare(valoarea, data, lst_cheltuieli) == [
+    assert aduna_valoare(valoarea, data, lst_cheltuieli, [], []) == [
         creeaza_cheltuiala(1, 1, 355, '12.08.2015', 'canal'),
         creeaza_cheltuiala(2, 2, 764, '23.09.2021', 'intretinere'),
         creeaza_cheltuiala(3, 3, 99.99, '25.05.2020', 'alte cheltuieli'),
@@ -17,7 +17,7 @@ def test_adunare_valoare():
     data = '11.07.2002'
     lst_cheltuieli = get_data()
     try:
-        lst_noua = aduna_valoare(valoarea, data, lst_cheltuieli)
+        lst_noua = aduna_valoare(valoarea, data, lst_cheltuieli, [], [])
         assert False
     except ValueError:
         assert True

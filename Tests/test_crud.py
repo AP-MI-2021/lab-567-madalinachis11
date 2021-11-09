@@ -14,8 +14,8 @@ def get_data():
 
 def test_adaugare():
     cheltuieli = get_data()
-    params = (29, 29, 256, '29.08.2020', 'intretinere')
-    p_new = creeaza_cheltuiala(*params)
+    params = (29, 29, 256, '29.08.2020', 'intretinere', [], [])
+    p_new = creeaza_cheltuiala(*params[:-2])
     new_cheltuieli = adaugare(cheltuieli, *params)
     assert len(new_cheltuieli) == len(cheltuieli) + 1
 
@@ -28,7 +28,7 @@ def test_adaugare():
 
 
     # testam daca se lanseaza exceptie pentru id duplicat
-    params2 = (29, 12, 123, '23.05.2019', 'canal')
+    params2 = (29, 12, 123, '23.05.2019', 'canal', [], [])
     try:
         _ = adaugare(new_cheltuieli, *params2)
         assert False
@@ -47,7 +47,7 @@ def test_modificare():
     cheltuieli = get_data()
     params = (3, 29, 800.50, '29.08.2020', 'canal')
     p_updated = creeaza_cheltuiala(*params)
-    updated = modificare(cheltuieli, p_updated)
+    updated = modificare(cheltuieli, p_updated, [], [])
     assert p_updated in updated
     assert p_updated not in cheltuieli
     assert len(updated) == len(cheltuieli)
@@ -56,7 +56,7 @@ def test_modificare():
     try:
         params2 = (10, 11, 567, '29.08.2020', 'intretinere')
         p_updated = creeaza_cheltuiala(*params2)
-        cheltuieli = modificare(cheltuieli, p_updated)
+        cheltuieli = modificare(cheltuieli, p_updated, [], [])
         assert False
     except ValueError:
         assert True
@@ -68,12 +68,12 @@ def test_stergere():
     cheltuieli = get_data()
     to_delete = 3
     p_deleted = read(cheltuieli, to_delete)
-    deleted = stergere(cheltuieli, to_delete)
+    deleted = stergere(cheltuieli, to_delete, [], [])
     assert p_deleted not in deleted
     assert p_deleted in cheltuieli
     assert len(deleted) == len(cheltuieli) - 1
     try:
-        cheltuieli = stergere(cheltuieli, 12)
+        cheltuieli = stergere(cheltuieli, 12, [], [])
         assert False
     except ValueError:
         assert True
