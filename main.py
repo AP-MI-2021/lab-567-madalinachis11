@@ -5,7 +5,8 @@ from Tests.test_cea_mai_mare_cheltuiala import test_cea_mai_mare_cheltuiala
 from Tests.test_crud import test_crud
 from Tests.test_ordonare import test_ordonare_descrescator
 from Tests.test_stergere import test_stergere_cheltuiala
-from Tests.test_undo_redo import test_undo_redo
+from Tests.test_undo_redo import test_undo_redo, test_adunare_valoare_undo_redo, test_ordonare_descrescator_undo_redo, \
+    test_stergere_cheltuiala_undo_redo, test_modificare_undo_redo, test_stergere_undo_redo
 from UserInterface.command_line_console import command_console
 from UserInterface.console import run_ui, handle_crud
 
@@ -44,4 +45,9 @@ if __name__=='__main__':
     test_ordonare_descrescator()
     test_afisare_sume_lunare()
     test_undo_redo()
+    test_adunare_valoare_undo_redo()
+    test_stergere_cheltuiala_undo_redo()
+    test_modificare_undo_redo()
+    test_stergere_undo_redo()
+    test_ordonare_descrescator_undo_redo()
     main()
